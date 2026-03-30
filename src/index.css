@@ -1,0 +1,397 @@
+/* ═══════════════════════════════════════════════════════════
+   Palette 3 — water-lily inspired
+   ═══════════════════════════════════════════════════════════ */
+:root {
+  --p3-dark-green: #0a3323;
+  --p3-moss: #839958;
+  --p3-beige: #f7f4d5;
+  --p3-rosy: #d3968c;
+  --p3-midnight: #105666;
+
+  /* Maps legacy gradient names → Palette 3 */
+  --charcoal-blue: var(--p3-dark-green);
+  --glaucous: var(--p3-moss);
+  --dusty-mauve: var(--p3-rosy);
+  --powder-blue: #c9d4ae;
+  --pearl-aqua: var(--p3-midnight);
+
+  --bg: var(--p3-beige);
+  --bg-elevated: #fffef6;
+  --surface: #fffef8;
+  --border: rgba(10, 51, 35, 0.16);
+  --border-bright: rgba(211, 150, 140, 0.45);
+  --text: var(--p3-dark-green);
+  --muted: #4d6b52;
+  --text-bright: #062818;
+  --accent: var(--p3-rosy);
+  --accent-dim: rgba(211, 150, 140, 0.28);
+  --accent-glow: rgba(16, 86, 102, 0.28);
+  --accent-soft: #e8beb6;
+  --link: var(--p3-midnight);
+  --link-hover: var(--p3-dark-green);
+  --mid: var(--p3-moss);
+  --secondary: var(--p3-rosy);
+  /* Solid hero name (no gradient) — same hue family */
+  --hero-name-color: #0a3323;
+  /* Credential line: midnight on cream for contrast (not pale peach) */
+  --credential-text: #105666;
+  /* Section kickers (uppercase labels) — readable vs cream */
+  --section-kicker: var(--credential-text);
+  --font-sans: "Outfit", system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --radius: 18px;
+  --radius-lg: 24px;
+  --shadow: 0 8px 32px rgba(10, 51, 35, 0.08);
+  --shadow-lift: 0 16px 48px rgba(10, 51, 35, 0.11);
+  --max: 1080px;
+
+  /* Surfaces that must track theme (cards were hardcoded cream — broke dark mode) */
+  --card-bg: linear-gradient(165deg, #fffef8 0%, rgba(247, 244, 213, 0.85) 100%);
+  --card-feature-bg: linear-gradient(
+    165deg,
+    rgba(131, 153, 88, 0.15),
+    rgba(16, 86, 102, 0.08),
+    #fffef8
+  );
+  --section-alt-bg: linear-gradient(
+    180deg,
+    rgba(255, 254, 248, 0.95) 0%,
+    rgba(131, 153, 88, 0.12) 50%,
+    rgba(255, 254, 248, 0.95) 100%
+  );
+  --footer-bg: linear-gradient(0deg, rgba(255, 254, 248, 0.98), rgba(247, 244, 213, 0.5));
+  --header-bg: rgba(255, 255, 255, 0.82);
+  --header-shadow: 0 4px 24px rgba(10, 51, 35, 0.07);
+  --btn-secondary-bg: rgba(255, 255, 255, 0.92);
+  --btn-secondary-bg-hover: #ffffff;
+  --project-tag-bg: rgba(131, 153, 88, 0.28);
+
+  /* Hero illustration */
+  --hero-ill-panel: rgba(255, 254, 248, 0.55);
+  --hero-ill-panel-2: rgba(247, 244, 213, 0.45);
+  --hero-ill-blob: rgba(131, 153, 88, 0.36);
+  --hero-ill-bar: rgba(16, 86, 102, 0.42);
+  --hero-ill-accent: rgba(211, 150, 140, 0.55);
+  --hero-ill-line: rgba(10, 51, 35, 0.2);
+  /* Nearly invisible so the viewer blends with the hero gradient */
+  --hero-model-bg: rgba(255, 254, 248, 0.35);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .page-blobs .blob {
+    animation: none !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  background-image:
+    radial-gradient(ellipse 110% 70% at 10% -8%, rgba(131, 153, 88, 0.35), transparent 54%),
+    radial-gradient(ellipse 85% 55% at 92% 6%, rgba(211, 150, 140, 0.22), transparent 48%),
+    radial-gradient(ellipse 70% 50% at 48% 100%, rgba(16, 86, 102, 0.1), transparent 55%),
+    linear-gradient(180deg, #fffef9 0%, var(--bg) 45%, #f2efd8 100%);
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(
+    circle at center,
+    rgba(131, 153, 88, 0.11) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: linear-gradient(to bottom, black 0%, black 75%, transparent 100%);
+}
+
+#root {
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.page-blobs {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-blobs .blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(72px);
+  opacity: 0.58;
+  animation: float-blob 22s ease-in-out infinite;
+}
+
+.page-blobs .blob-a {
+  width: min(58vw, 440px);
+  height: min(58vw, 440px);
+  background: linear-gradient(135deg, rgba(131, 153, 88, 0.55), rgba(211, 150, 140, 0.28));
+  top: -12%;
+  left: -8%;
+  animation-delay: 0s;
+}
+
+.page-blobs .blob-b {
+  width: min(48vw, 380px);
+  height: min(48vw, 380px);
+  background: linear-gradient(160deg, rgba(16, 86, 102, 0.38), rgba(131, 153, 88, 0.32));
+  top: 32%;
+  right: -12%;
+  animation-delay: -7s;
+  animation-duration: 26s;
+}
+
+.page-blobs .blob-c {
+  width: min(42vw, 340px);
+  height: min(42vw, 340px);
+  background: linear-gradient(200deg, rgba(211, 150, 140, 0.25), rgba(10, 51, 35, 0.15));
+  bottom: -8%;
+  left: 22%;
+  animation-delay: -12s;
+  animation-duration: 24s;
+}
+
+@keyframes float-blob {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(3%, 4%) scale(1.04);
+  }
+  66% {
+    transform: translate(-2%, 2%) scale(0.98);
+  }
+}
+
+/* Lenis + smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+html.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+/* Hero credential (under name) */
+.hero-credential {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--credential-text);
+  margin: 0.25rem 0 1rem;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+.hero-subtext {
+  margin-top: 0;
+}
+
+/* Theme toggle — same palette family in both modes */
+.theme-toggle {
+  flex-shrink: 0;
+  padding: 0.25rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 999px;
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.theme-toggle-track {
+  position: relative;
+  display: block;
+  width: 52px;
+  height: 28px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent-dim), transparent);
+  border: 1px solid var(--border);
+  transition: border-color 0.2s ease;
+}
+
+.theme-toggle:hover .theme-toggle-track {
+  border-color: var(--border-bright);
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+html[data-theme="dark"] .theme-toggle-thumb {
+  transform: translateX(24px);
+  background: linear-gradient(145deg, #f7f4d5, #c9d4ae);
+}
+
+.theme-toggle-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  line-height: 1;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.theme-toggle-sun {
+  left: 8px;
+}
+
+.theme-toggle-moon {
+  right: 7px;
+}
+
+/* ═══ Palette 3 — dark (same hues, inverted surfaces) ═══ */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #070d0b;
+  --bg-elevated: #0e1814;
+  --surface: #142820;
+  --border: rgba(255, 255, 255, 0.16);
+  --border-bright: rgba(120, 240, 220, 0.42);
+  /* Near-white body copy + light gray-green secondary (WCAG-friendly on #070d0b) */
+  --text: #f5f7f6;
+  --muted: #c8d9d1;
+  --text-bright: #ffffff;
+  --accent: #f0c4bc;
+  --accent-dim: rgba(240, 196, 188, 0.18);
+  --accent-glow: rgba(120, 240, 220, 0.4);
+  --accent-soft: #e0b0a6;
+  --link: #9af5e8;
+  --link-hover: #ffffff;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  --shadow-lift: 0 16px 48px rgba(0, 0, 0, 0.55);
+
+  --charcoal-blue: #f5f7f6;
+  --glaucous: #b0d4a2;
+  --dusty-mauve: #f5d0c8;
+  --powder-blue: #8aab92;
+  --pearl-aqua: #7eedf8;
+  /* Same dusty pink as .btn-primary (midpoint of accent-soft → accent gradient) */
+  --hero-name-color: color-mix(in srgb, var(--accent-soft) 50%, var(--accent) 50%);
+  --credential-text: #d2fdf5;
+  --section-kicker: #b8cfc4;
+
+  --card-bg: linear-gradient(165deg, #1e342c 0%, #142820 100%);
+  --card-feature-bg: linear-gradient(
+    165deg,
+    rgba(131, 153, 88, 0.32),
+    rgba(16, 86, 102, 0.38),
+    #162a22
+  );
+  --section-alt-bg: linear-gradient(
+    180deg,
+    rgba(18, 38, 30, 0.97) 0%,
+    rgba(131, 153, 88, 0.16) 50%,
+    rgba(10, 22, 18, 0.98) 100%
+  );
+  --footer-bg: linear-gradient(0deg, #0c1814, #070d0b);
+  --header-bg: rgba(7, 13, 11, 0.88);
+  --header-shadow: 0 4px 28px rgba(0, 0, 0, 0.45);
+  --btn-secondary-bg: rgba(20, 40, 32, 0.96);
+  --btn-secondary-bg-hover: #1e342c;
+  --project-tag-bg: rgba(176, 212, 162, 0.22);
+
+  --hero-ill-panel: rgba(20, 40, 32, 0.5);
+  --hero-ill-panel-2: rgba(12, 28, 22, 0.72);
+  --hero-ill-blob: rgba(94, 201, 212, 0.12);
+  --hero-ill-bar: rgba(176, 212, 162, 0.7);
+  --hero-ill-accent: rgba(240, 196, 188, 0.72);
+  --hero-ill-line: rgba(255, 255, 255, 0.22);
+  --hero-model-bg: rgba(7, 13, 11, 0.25);
+}
+
+html[data-theme="dark"] body {
+  background-image:
+    radial-gradient(ellipse 110% 70% at 12% -10%, rgba(16, 86, 102, 0.48), transparent 52%),
+    radial-gradient(ellipse 80% 50% at 95% 8%, rgba(131, 153, 88, 0.2), transparent 48%),
+    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(10, 51, 35, 0.55), transparent 55%),
+    linear-gradient(180deg, #0c1814 0%, var(--bg) 45%, #050a08 100%);
+}
+
+html[data-theme="dark"] body::before {
+  background-image: radial-gradient(
+    circle at center,
+    rgba(131, 153, 88, 0.08) 1px,
+    transparent 1px
+  );
+}
+
+html[data-theme="dark"] .page-blobs .blob-a {
+  background: linear-gradient(135deg, rgba(16, 86, 102, 0.5), rgba(131, 153, 88, 0.25));
+}
+
+html[data-theme="dark"] .page-blobs .blob-b {
+  background: linear-gradient(160deg, rgba(211, 150, 140, 0.22), rgba(16, 86, 102, 0.35));
+}
+
+html[data-theme="dark"] .page-blobs .blob-c {
+  background: linear-gradient(200deg, rgba(10, 51, 35, 0.4), rgba(131, 153, 88, 0.15));
+}
+
