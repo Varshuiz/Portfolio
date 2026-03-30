@@ -29,7 +29,7 @@ export const heroModel = {
 
 /** Optional links for the contact section (Ashlyn / Bettina–style CTA band). */
 export const contact = {
-  email: "",
+  email: "smritimohapatra21@gmail.com",
   linkedin: "",
 };
 
