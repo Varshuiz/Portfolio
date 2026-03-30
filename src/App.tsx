@@ -171,14 +171,7 @@ export default function App() {
               className="section-title"
               letterClassName="section-title-char"
             />
-            <p className="section-intro js-reveal">
-              Repositories are linked where they exist on{" "}
-              <a href={github.profile} target="_blank" rel="noopener noreferrer">
-                GitHub ({github.username})
-              </a>
-              . Update <code className="inline-code">src/content.ts</code> to point each project to
-              a public repo when you publish them.
-            </p>
+
             <div className="project-grid js-reveal">
               {projects.map((p) => (
                 <article key={p.name} className="card project-card">
@@ -371,7 +364,16 @@ export default function App() {
               </p>
               <div className="contact-actions">
                 {contact.email ? (
-                  <a className="btn btn-primary" href={`mailto:${contact.email}`}>
+                  <a
+                    className="btn btn-primary"
+                    href={
+                      contact.email.toLowerCase().endsWith("@gmail.com")
+                        ? `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(contact.email)}`
+                        : `mailto:${contact.email}`
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Email me
                   </a>
                 ) : (

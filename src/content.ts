@@ -53,6 +53,21 @@ export const education = {
 
 export const workExperience = [
   {
+    title: "Software Developer Intern",
+    org: "Jarillo Consulting",
+    dates: "Jan 2026 – Present",
+    location: "Edmonton, AB",
+    detail:
+      "React Native, Supabase, Azure OpenAI, Azure Speech-to-Text, Docker, CI/CD, Jest",
+    bullets: [
+      "Developed a cross-platform mobile application for social work case management, enabling practitioners to document client interviews, generate AI-assisted case notes, and manage longitudinal client records.",
+      "Integrated Azure Speech-to-Text for real-time transcription of client interviews and Azure OpenAI (GPT-4o-mini) to automatically summarize sessions and populate structured case forms.",
+      "Built and maintained backend infrastructure using Supabase for authentication, PostgreSQL database management, and secure file storage, with role-based access control for different user types.",
+      "Configured CI/CD pipelines and Jest testing frameworks to ensure reliable deployments and maintain code quality across the team.",
+      "Collaborated in an Agile team environment, contributing across API integration, frontend development, and technical documentation while following privacy compliance requirements (FOIP, HIA, PIPA).",
+    ],
+  },
+  {
     title: "Research Intern",
     org: "University of Alberta",
     detail: "Prof. Evan Davies",
@@ -160,20 +175,18 @@ export const projects: {
 }[] = [
   {
     name: "Social Work App",
-    context: "Jarillo Consulting — CMPUT 401 Capstone",
-    dates: "Jan 2026 – Present",
+    context: "",
     stack: "React Native, Supabase, Azure, CI/CD, Jest, Docker",
     description: [
       "Full-stack mobile app for a real client (social work case management)",
       "Backend with Supabase, cloud on Azure, CI/CD, and Jest testing",
       "Agile collaboration across design, API integration, and documentation",
     ],
-    github: { kind: "profile", label: "Capstone — add repo when public" },
+    github: { kind: "profile", label: "coming soon" },
   },
   {
     name: "Evapotranspiration (ET) Calculator Website",
-    context: "Research Project",
-    dates: "2025",
+    context: "",
     stack: "Python, Django, Docker, ACIS, Environment Canada Data",
     description: [
       "Full-stack data platform integrating ACIS and Environment Canada datasets",
@@ -188,8 +201,8 @@ export const projects: {
   },
   {
     name: "Streamly — Distributed Social Network",
-    context: "CMPUT Course Project",
-    dates: "2024",
+    context: "",
+    dates: "",
     stack: "Python, Django, PostgreSQL, RESTful API, Docker",
     description: [
       "Streamly: distributed platform connecting multiple servers via REST APIs",
@@ -204,15 +217,19 @@ export const projects: {
   },
   {
     name: "Frolic – Event Lottery System",
-    context: "CMPUT Group Project",
-    dates: "2024",
+    context: "",
+    dates: "",
     stack: "Java, Android Studio, Firebase, JUnit, Agile, Git, CI/CD",
     description: [
       "Lottery-based event sign-ups, waiting lists, and QR check-in",
       "Multi-role system: users, organizers, admins",
       "Agile delivery with version control and CI/CD",
     ],
-    github: { kind: "profile", label: "Group project — link repo if published" },
+    github: {
+      kind: "repo",
+      href: "https://github.com/CMPUT301F24frolic/frolic-project",
+      label: "View frolic-project on GitHub",
+    },
   },
 ];
 
