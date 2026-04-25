@@ -66,7 +66,7 @@ function Nav() {
   );
 }
 
-function GitHubProjectLink({ link }: { link: ProjectLink }) {
+function ProjectCardLink({ link }: { link: ProjectLink }) {
   if (link.kind === "repo") {
     return (
       <a
@@ -156,7 +156,7 @@ export default function App() {
               letterClassName="section-title-char"
             />
             <p className="prose js-reveal">
-            I'm someone who learns best by building, and every role I've taken on has been driven by that. From Processing climate datasets for agricultural research to synthetic data pipelines at my ML internship to a mobile app for a real consulting client, I've always sought out work where the output actually matters. Alongside that, I lead the UAlberta chapter of CanadaCyberSTEAMChallenge, where we work to make tech education more accessible to students across Canada. Graduating April 2026 and looking for a role in software engineering, data analytics, or ML where I can keep doing work that has real impact.
+            I believe the best way to learn is to build, and that has driven every role I've taken on. From climate datasets for agricultural research to GAN pipelines at my ML internship to a mobile app built for a social work nonprofit, I've always sought out work where the output actually matters. Alongside that, I lead the UAlberta chapter of CanadaCyberSTEAMChallenge, working to make tech education more accessible across Canada. I'm looking for a software engineering role where I can keep learning and building things that actually make a difference. let's connect!
             </p>
           </div>
         </section>
@@ -192,7 +192,12 @@ export default function App() {
                       <li key={d}>{d}</li>
                     ))}
                   </ul>
-                  {p.github && <GitHubProjectLink link={p.github} />}
+                  {(p.github || p.demo) && (
+                    <div className="project-links">
+                      {p.github && <ProjectCardLink link={p.github} />}
+                      {p.demo && <ProjectCardLink link={p.demo} />}
+                    </div>
+                  )}
                 </article>
               ))}
             </div>
@@ -1035,13 +1040,20 @@ export default function App() {
         }
 
         .project-github {
-          margin-top: auto;
-          padding-top: 1rem;
           font-size: 0.875rem;
           font-weight: 600;
           display: inline-flex;
           align-items: center;
           gap: 0.25rem;
+        }
+
+        .project-links {
+          margin-top: auto;
+          padding-top: 1rem;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.75rem;
+          align-items: center;
         }
 
         .contact-section .section-title {

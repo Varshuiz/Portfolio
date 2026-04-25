@@ -11,10 +11,10 @@ export type ProjectLink =
 export const hero = {
   name: "Smriti Mohapatra",
   greeting: "Hello, I'm",
-  /** Shown directly under your name (credential line). */
+  /** Shown directly under name (credential line). */
   credential: "Computing Science · University of Alberta",
   tagline:
-    "I write code that (mostly) works. ML pipelines, data platforms, full-stack mobile apps. Fourth-year CS student at UAlberta who's spent the last four years building real things for real problems: an ML internship, a research internship, a software dev role, and leading a national STEM org. I love turning complex problems into working software that has actual impact. Let's build something great.",
+    "Hi! I'm Smriti Mohapatra. Fourth-year CS student at UAlberta with experience across an ML internship, a research internship, a software dev role, and leading a national STEM org. I have worked with ML pipelines, data platforms, and full-stack mobile apps. I love turning complex problems into software that makes a difference. Let's build something together!",
   location: "Edmonton, AB",
 };
 
@@ -58,13 +58,13 @@ export const workExperience = [
     dates: "Jan 2026 – Present",
     location: "Edmonton, AB",
     detail:
-      "React Native, Supabase, Azure OpenAI, Azure Speech-to-Text, Docker, CI/CD, Jest",
+      "React Native, TypeScript, Supabase, Azure GPT-4o, Azure Speech-to-Text, Docker, CI/CD, Jest, SonarQube",
     bullets: [
-      "Developed a cross-platform mobile application for social work case management, enabling practitioners to document client interviews, generate AI-assisted case notes, and manage longitudinal client records.",
-      "Integrated Azure Speech-to-Text for real-time transcription of client interviews and Azure OpenAI (GPT-4o-mini) to automatically summarize sessions and populate structured case forms.",
-      "Built and maintained backend infrastructure using Supabase for authentication, PostgreSQL database management, and secure file storage, with role-based access control for different user types.",
-      "Configured CI/CD pipelines and Jest testing frameworks to ensure reliable deployments and maintain code quality across the team.",
-      "Collaborated in an Agile team environment, contributing across API integration, frontend development, and technical documentation while following privacy compliance requirements (FOIP, HIA, PIPA).",
+      "Built an AI-assisted cross-platform mobile and web platform for frontline social workers to record, transcribe, and summarize client interviews, with automatic population of structured agency forms via Azure GPT-4o.",
+      "Integrated Azure Speech-to-Text for on-device interview recording with pause, resume, and playback support, alongside offline-first capture and secure sync to Azure backend using last-write-wins conflict resolution.",
+      "Designed and implemented FOIP, HIA, and PIPA-compliant architecture with role-based access control for practitioners and admins, full audit logging, end-to-end encrypted local storage, and practitioner safety features including emergency SOS and location capture.",
+      "Built backend infrastructure using Supabase for authentication, PostgreSQL database management, secure file storage, and client and case management including profiles, consent history, and search and filter.",
+      "Configured CI/CD pipelines with Jest and SonarQube to ensure reliable deployments and maintain code quality, collaborating in an Agile team across API integration, frontend development, and technical documentation.",
     ],
   },
   {
@@ -172,17 +172,19 @@ export const projects: {
   stack: string;
   description: string[];
   github?: ProjectLink;
+  demo?: ProjectLink;
 }[] = [
   {
-    name: "Social Work App",
-    context: "",
-    stack: "React Native, Supabase, Azure, CI/CD, Jest, Docker",
+    name: "FieldNotes AI",
+    context: "Jarillo Consulting",
+    stack: "React Native, TypeScript, Azure GPT-4o, Supabase, Jest",
     description: [
-      "Full-stack mobile app for a real client (social work case management)",
-      "Backend with Supabase, cloud on Azure, CI/CD, and Jest testing",
-      "Agile collaboration across design, API integration, and documentation",
+      "AI-assisted platform for social workers to record, transcribe, and summarize client interviews with automatic form population via Azure GPT-4o",
+      "Offline-first capture with secure Azure backend sync and last-write-wins conflict resolution",
+      "FOIP, HIA, and PIPA-compliant with role-based access, audit logging, encrypted storage, and emergency SOS",
     ],
-    github: { kind: "profile", label: "coming soon" },
+    github: { kind: "repo", href: "https://ualberta-cmput401.github.io/W26project-JarilloConsulting/", label: "View FieldNotes AI documentation" },
+    demo: { kind: "repo", href: "https://www.youtube.com/watch?v=lAkPUJcx8bg", label: "Watch FieldNotes AI demo" },
   },
   {
     name: "Evapotranspiration (ET) Calculator Website",
